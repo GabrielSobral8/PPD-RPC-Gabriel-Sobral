@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package grpccalc;
+
+message Operands {
+  double x = 1;
+  double y = 2;
+}
+
+message Result {
+  double value = 1;
+  string error = 2;
+}
+
+service Calculator {
+  rpc Add (Operands) returns (Result);
+  rpc Sub (Operands) returns (Result);
+  rpc Mul (Operands) returns (Result);
+  rpc Div (Operands) returns (Result);
+}
